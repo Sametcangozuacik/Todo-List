@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.Todolist {
+  margin: 0 auto;
+  max-width: 1400px;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Todolist-h1{
+  margin-top: 50px;
+  font-family: Arial,  sans-serif;
+}
+
+.Todo-List-img {
+  margin: 100px;
+}
+
+.Todolist-box {
+  width: 1000px;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Todolist-box-search {
+  width: 500px;
+  height: 35px;
+  border: 2px solid #C3C1E5;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.Todolist-box-search-input {
+  border: none;
+  outline: none;
+  width: 400px;
+  margin-left: 15px;
+}
+
+.Todolist-box-search-input:focus {
+  outline: none;
+  border: none;
+}
+
+.Todolist-box-search-button {
+  border: none;
+  background-color: transparent;
+  margin: 5px 10px;
+}
+
+.Todo-List-background-mode {
+  background-color: #6C63FF;
+  margin-left: 20px;
+}
+
+.dark-mode {
+  background-color: #252525;
+  color: #fff;
+  
+}
+
+.dark-mode.Todolist-box-search-button {
+  background-color: #6C63FF;
+}
+
+.dark-mode input {
+  background-color: #252525; 
+  color: #fff; 
+}
+
+.Todo-List-background-mode {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.custom-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.custom-input {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.custom-button {
+  width: calc(50% - 5px);
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+}
+
+#notesContainer {
+  margin-top: 20px;
+}
+
+.note {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.note:hover {
+  background-color: #f2f2f2;
+}
+
+
+.note-plus-button{
+  border: none ;
+  background-color: #6C63FF;
+  border-radius: 50%;
+  padding: 5px;
+}
