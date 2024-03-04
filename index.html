@@ -20,17 +20,20 @@
                         src="images/call-button.png" alt="call-button.png"></button>
             </form>
             <button class="Todo-List-background-mode" id="toggle-mode">
-                <img src="images/day-mode.svg" alt="Toggle Mode">
+                <img src="images/night-mode.svg" alt="Toggle Mode">
             </button>
             <div id="noteContainer" class="custom-container">
-                <h2>New Note</h2>
-                <input type="text" id="noteInput" class="custom-input" placeholder="Notunuzu buraya yazın...">
-                <button onclick="applyNote()" class="custom-button">Kaydet</button>
-                <button onclick="cancelNote()" class="custom-button">İptal</button>
+                <h2 class="custom-container-h2">New Note</h2>
+                <input type="text" id="noteInput" class="custom-input" placeholder="Input your note...">
+                <div class="custom-container-button-box">
+                    <button onclick="cancelNote()" class="custom-button">Cancel</button>
+                    <button onclick="applyNote()" class="custom-button">Apply</button>
+                </div>
             </div>
-            <div id="notesContainer"></div>
-            <button class="note-plus-button" onclick="showNoteInput()"><img src="images/plus-sign.svg" alt="Artı-İşareti"></button>
         </div>
+        <div id="notesContainer" class="notesContainer"></div>
+            <button class="note-plus-button" onclick="showNoteInput()"><img src="images/plus-sign.svg"
+                    alt="Artı-İşareti"></button>
 
     </section>
     <script src="app.js"></script>
