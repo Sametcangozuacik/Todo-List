@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List </title>
+    <link rel="icon" href="images/Todo-List-logo.png" type="Todo-List" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <section class="Todolist">
+        <h1 class="Todolist-h1">Todo-List</h1>
+        <div class="Todolist-box">
+            <form class="Todolist-box-search">
+                <input class="Todolist-box-search-input" type="text" id="myText" name="myText"
+                    placeholder="Search Note..">
+                <button class="Todolist-box-search-button" type="button" onclick="searchText()"><img
+                        src="images/call-button.png" alt="call-button.png"></button>
+            </form>
+            <button class="Todo-List-background-mode" id="toggle-mode">
+                <img id="toggleModeImg" src="images/night-mode.svg" alt="Toggle Mode">
+            </button>
+            <div id="noteContainer" class="custom-container">
+                <h2 class="custom-container-h2">New Note</h2>
+                <input type="text" id="noteInput" class="custom-input" placeholder="Input your note...">
+                <div class="custom-container-button-box">
+                    <button onclick="cancelNote()" class="custom-button">Cancel</button>
+                    <button onclick="applyNote()" class="custom-button">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div id="notesContainer" class="notesContainer">
+        </div>
+        <button class="Todo-plus-button" onclick="showNoteInput()"><img class="Todo-plus-button-img" src="images/plus-sign.svg"alt="Artı-İşareti"></button>
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>
