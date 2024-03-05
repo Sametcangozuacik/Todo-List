@@ -20,7 +20,7 @@
                         src="images/call-button.png" alt="call-button.png"></button>
             </form>
             <button class="Todo-List-background-mode" id="toggle-mode">
-                <img src="images/night-mode.svg" alt="Toggle Mode">
+                <img id="toggleModeImg" src="images/night-mode.svg" alt="Toggle Mode">
             </button>
             <div id="noteContainer" class="custom-container">
                 <h2 class="custom-container-h2">New Note</h2>
@@ -31,10 +31,9 @@
                 </div>
             </div>
         </div>
-        <div id="notesContainer" class="notesContainer"></div>
-        <button class="note-plus-button" onclick="showNoteInput()"><img src="images/plus-sign.svg"
-                alt="Artı-İşareti"></button>
-
+        <div id="notesContainer" class="notesContainer">
+        </div>
+        <button class="Todo-plus-button" onclick="showNoteInput()"><img class="Todo-plus-button-img" src="images/plus-sign.svg"alt="Artı-İşareti"></button>
     </section>
     <script src="app.js"></script>
 </body>

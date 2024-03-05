@@ -20,16 +20,26 @@ a {
 
 .Todolist {
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 600px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.Todolist-box-search-button:hover,
+.Todo-List-background-mode:hover,
+.custom-button:hover,
+.Todo-plus-button:hover {
+    cursor: pointer; 
 }
 
 .Todolist-h1 {
-  margin-top: 50px;
   font-family: Arial, sans-serif;
+  position: absolute;
+  top:25px;
 }
 
 .Todo-List-img {
@@ -42,6 +52,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 40px;
 }
 
 .Todolist-box-search {
@@ -52,6 +64,7 @@ a {
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+ 
 
 }
 
@@ -153,7 +166,7 @@ a {
   color: #fff;
 }
 
-.dark-mode .custom-container{
+.dark-mode .custom-container {
   background-color: #252525;
 }
 
@@ -161,8 +174,8 @@ a {
   color: white;
 }
 
-.dark-mode .custom-input{
-  border : white ;
+.dark-mode .custom-input {
+  border: white;
 }
 
 #notesContainer {
@@ -184,13 +197,20 @@ a {
 }
 
 
-.note-plus-button {
+.Todo-plus-button {
   border: none;
   background-color: #6C63FF;
   border-radius: 50%;
-  padding: 7px 7px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px; 
 }
 
+.Todo-plus-button-img{
+  padding: 7px;
+}
 
 .note-item {
   border: 1px solid #ccc;
@@ -216,7 +236,7 @@ a {
   border-radius: 5px;
   font-size: 16px;
 }
- 
+
 .custom-button {
   padding: 10px 20px;
   background-color: #6C63FF;
@@ -230,44 +250,49 @@ a {
   background-color: #534CC2;
 }
 
-.notesContainer {
-  width: 450px;
-  border: none;
-  font-family: Arial, Helvetica, sans-serif;
+
+#notesContainer {
+  display: flex;
+  justify-self: space-between;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  width: 500px;
+  font-size: 24px;
+  margin-top: 20px;
 
 }
 
-.delete-button:hover {
-  background-image: url('images/delete-button-red.svg');
-
-}
-
-.note-checkbox {
+#notesContainer input[type="checkbox"] {
+  border: 2px solid #6C63FF;
   width: 30px;
   height: 30px;
-}
-
-.note-checkbox:checked::before {
-  display: inline-block;
-  width: 30px; 
-  height: 30px;
-  background-color: #6C63FF; 
-}
-
-.note-item span {
-  font-family: Arial, sans-serif; 
-}
-
-
-.note-item {
-  display: flex; 
-  justify-content: space-between;
-  align-items: center; 
-  border: none;
-  color: black;
 
 }
 
-.dark-mode .note-item span {
-  color: white; 
+#notesContainer .todo-item {
+  border-bottom: 1px solid #6C63FF;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+}
+
+#notesContainer .todo-item img:hover {
+  content: url('images/delete-button-red.svg'); 
+}
+
+.notesContainer-all-data-deleted{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.all-data-deleted-p {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+#notesContainer .todo-item img:hover {
+  cursor: pointer; /* Delete tuşunun üzerine gelindiğinde mouse imleci işaretçi şeklinde olacak */
 }
