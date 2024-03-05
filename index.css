@@ -21,7 +21,6 @@ a {
 .Todolist {
   margin: 0 auto;
   max-width: 1400px;
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +42,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
 }
 
 .Todolist-box-search {
@@ -245,20 +243,19 @@ a {
 }
 
 .note-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 .note-checkbox:checked::before {
-  content: ''; 
   display: inline-block;
-  width: 20px; 
-  height: 20px;
+  width: 30px; 
+  height: 30px;
   background-color: #6C63FF; 
 }
 
 .note-item span {
-  font-family: Arial, sans-serif; /* Metin font ailesi */
+  font-family: Arial, sans-serif; 
 }
 
 
@@ -268,6 +265,7 @@ a {
   align-items: center; 
   border: none;
   color: black;
+
 }
 
 .dark-mode .note-item span {
