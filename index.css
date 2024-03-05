@@ -31,8 +31,9 @@ a {
 .Todolist-h1 {
   font-family: Arial, sans-serif;
   position: absolute;
-  top: 30px;
+  top: 50px;
 }
+
 
 .Todolist-box-search-button:hover,
 .Todo-List-background-mode:hover,
@@ -42,12 +43,12 @@ a {
 }
 
 .Todolist-box {
-  width: 100%;
+  max-width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  top: -30px;
+  top: -100px;
 }
 
 .Todolist-box-search {
@@ -58,6 +59,7 @@ a {
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+
 }
 
 .Todolist-box-search-input {
@@ -191,7 +193,7 @@ a {
 }
 
 #notesContainer input[type="checkbox"]:active {
-  background-color: #6C63FF; /* veya istediğiniz başka bir renk */
+  background-color: #6C63FF; 
 }
 
 .note-item {
@@ -286,7 +288,6 @@ a {
 .Todo-plus-button:hover {
   background-color: #534cc2;
 }
-
 
 @media screen and (max-width: 768px) {
   .Todolist-box-search {
