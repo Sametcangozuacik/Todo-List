@@ -132,3 +132,23 @@ function deleteTodo(index) {
     localStorage.setItem("todoList", JSON.stringify(todoList));
     renderTodoList();
 }
+
+function toggleDropdown() {
+    document.getElementById("Todo-allmenu-content").classList.toggle("show");
+}
+
+function todoAl() {
+    renderTodoList();
+}
+
+function todoCompleted() {
+    const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+    const filteredList = todoList.filter(todo => todo.isDone);
+    renderFilteredTodoList(filteredList);
+}
+
+function todoUncompleted() {
+    const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+    const filteredList = todoList.filter(todo => !todo.isDone);
+    renderFilteredTodoList(filteredList);
+}
