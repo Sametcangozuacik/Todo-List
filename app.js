@@ -1,3 +1,11 @@
+const notesContainer = document.getElementById("notesContainer")
+const searchInput = document.querySelector("#myText");
+
+
+searchInput.addEventListener("keyup", (e) => {
+    searchText(e.target.value.toLowerCase())
+});
+
 const renderTodoList = () => {
     const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
     const notesContainer = document.getElementById("notesContainer");
@@ -7,20 +15,20 @@ const renderTodoList = () => {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
         todoItem.innerHTML = `
-            <input type="checkbox" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
+            <input class="Todo-checkbox" type="checkbox" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
             <label for="todo${index}">${todo.title}</label>
             <img class="delete-button" src="images/delete-button.svg" onclick="deleteTodo(${index})" />
         `;
         notesContainer.appendChild(todoItem);
     });
 
-    if (notesContainer.children.length === 0) {
+    if (notesContainer.children.length <= 0) {
         showEmptyState();
     }
 };
 
 function showEmptyState() {
-    const notesContainer = document.getElementById("notesContainer");
+
     notesContainer.innerHTML = `
      <div class="notesContainer-all-data-deleted" >
         <img class="all-data-deleted-img" src="images/Detective-check-footprint 1.svg" alt="All Deleted">
@@ -54,24 +62,6 @@ function applyNote() {
         localStorage.setItem("todoList", JSON.stringify(newTodoList));
         renderTodoList();
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.classList.add("note-checkbox");
-        newNoteDiv.appendChild(checkbox);
-
-        const noteText = document.createElement("span");
-        noteText.textContent = note;
-        newNoteDiv.appendChild(noteText);
-
-        const deleteButton = document.createElement("img");
-        deleteButton.src = "images/delete-button.svg";
-        deleteButton.alt = "Delete";
-        deleteButton.classList.add("delete-button");
-        deleteButton.style.cursor = "pointer";
-        newNoteDiv.appendChild(deleteButton);
-
-        notesContainer.appendChild(newNoteDiv);
-
         if (notesContainer.children.length > 1) {
             const previousNote = notesContainer.children[notesContainer.children.length - 2];
             previousNote.style.borderBottom = "1px solid #ccc";
@@ -79,21 +69,20 @@ function applyNote() {
         }
 
         noteInput.value = "";
-        const noteContainer = document.getElementById("noteContainer");
         noteContainer.style.display = "none";
     } else {
         alert("Lütfen bir veri girin.");
     }
 }
+let isAddModalOpen = false;
 
 function cancelNote() {
-    const noteContainer = document.getElementById("noteContainer");
     noteContainer.style.display = "none";
+    isAddModalOpen = !isAddModalOpen;
 }
 
-let isAddModalOpen = false;
+
 function showNoteInput() {
-    const noteContainer = document.getElementById("noteContainer");
     noteContainer.style.display = isAddModalOpen ? "none" : "block";
     isAddModalOpen = !isAddModalOpen;
 }
@@ -115,15 +104,14 @@ toggleButton.addEventListener("click", function () {
     }
 });
 
-const searchText = () => {
-    const searchTerm = document.getElementById("myText").value.toLowerCase();
-    const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
+function searchText(searchTerm) {
     const filteredList = todoList.filter(todo => todo.title.toLowerCase().includes(searchTerm));
     renderFilteredTodoList(filteredList);
 };
 
 const renderFilteredTodoList = (filteredList) => {
-    const notesContainer = document.getElementById("notesContainer");
     notesContainer.innerHTML = "";
 
     filteredList.forEach((todo, index) => {
@@ -140,7 +128,7 @@ const renderFilteredTodoList = (filteredList) => {
 
 function deleteTodo(index) {
     const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-    todoList.splice(index, 1); 
+    todoList.splice(index, 1);
     localStorage.setItem("todoList", JSON.stringify(todoList));
     renderTodoList();
 }

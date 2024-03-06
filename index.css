@@ -20,18 +20,17 @@ a {
 .Todolist {
   margin: 0 auto;
   max-width: 600px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
+
 
 .Todolist-h1 {
   font-family: Arial, sans-serif;
-  position: absolute;
-  top: 50px;
+  margin-top: 30px;
 }
 
 
@@ -47,8 +46,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: -100px;
+  margin-top: 30px;
 }
 
 .Todolist-box-search {
@@ -122,6 +120,7 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   font-family: Arial, sans-serif;
+  display: none;
 }
 
 .custom-container-h2 {
@@ -169,9 +168,10 @@ a {
   border: white;
 }
 
-.dark-mode .Todolist-box-search-button{
+.dark-mode .Todolist-box-search-button {
   background-color: transparent;
 }
+
 #notesContainer {
   margin-top: 100px;
   display: flex;
@@ -180,6 +180,7 @@ a {
   width: 100%;
   font-size: 24px;
   margin-top: 20px;
+  padding-bottom: 30px;
 }
 
 #notesContainer input[type="checkbox"] {
@@ -193,7 +194,7 @@ a {
 }
 
 #notesContainer input[type="checkbox"]:active {
-  background-color: #6C63FF; 
+  background-color: #6C63FF;
 }
 
 .note-item {
@@ -241,11 +242,12 @@ a {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  position: relative;
+  border: none;
+  border-bottom: 2px solid #6c63ff;
 }
 
 .todo-item .delete-button:hover {
-  content: url('images/delete-button-red.svg'); 
+  content: url('images/delete-button-red.svg');
 }
 
 .todo-item label {
@@ -268,14 +270,14 @@ a {
 
 }
 
-.all-data-deleted-p{
+.all-data-deleted-p {
   font-size: 24px;
 }
 
-.Todo-plus-button{
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
+.Todo-plus-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
   background-color: #6c63ff;
   border-radius: 50%;
   width: 40px;
@@ -287,6 +289,11 @@ a {
 
 .Todo-plus-button:hover {
   background-color: #534cc2;
+}
+
+.Todo-checkbox {
+  accent-color: #6C63FF;
+  border: 2px solid #6C63FF;
 }
 
 @media screen and (max-width: 768px) {
@@ -302,5 +309,11 @@ a {
     width: 90%;
     max-width: 400px;
     height: auto;
+  }
+
+  .todo-item {
+    margin-left: 10px;
+    margin-right: 10px;
+
   }
 }
