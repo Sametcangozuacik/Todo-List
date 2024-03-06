@@ -14,8 +14,11 @@ a {
 }
 
 .body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Kanit", sans-serif;
+  font-weight: 800;
+  font-style: italic;
 }
+
 
 .Todolist {
   margin: 0 auto;
@@ -29,7 +32,6 @@ a {
 
 
 .Todolist-h1 {
-  font-family: Arial, sans-serif;
   margin-top: 30px;
 }
 
@@ -176,7 +178,6 @@ a {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
-  font-family: Arial, sans-serif;
   width: 100%;
   font-size: 24px;
   margin-top: 20px;
@@ -243,7 +244,7 @@ a {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 2px solid #6c63ff;
+  border-bottom: 1px solid #6c63ff;
 }
 
 .todo-item .delete-button:hover {
@@ -293,7 +294,7 @@ a {
 
 .Todo-checkbox {
   accent-color: #6C63FF;
-  border: 2px solid #6C63FF;
+  border: 1px solid #6C63FF;
 }
 
 @media screen and (max-width: 768px) {
