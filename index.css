@@ -83,6 +83,12 @@ a {
   align-items: center;
 }
 
+.Todo-checkbox:checked+label {
+  color: gray;
+  text-decoration: line-through;
+}
+
+
 .dark-mode {
   background-color: #252525;
   color: #fff;
@@ -295,21 +301,21 @@ a {
 
 .allbtn {
   background-color: #6C63FF;
-  width: 115px;
+  width: 122px;
   height: 35px;
   color: white;
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px 5px 10px ;
+  padding: 5px 10px 5px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .allbtn img {
-  width: 15px; 
-  height: 15px; 
+  width: 15px;
+  height: 15px;
 }
 
 
@@ -319,7 +325,7 @@ a {
 }
 
 .Todo-allmenu-content {
-  border: 2px solid #6C63FF ;
+  border: 2px solid #6C63FF;
   border-radius: 5px;
   display: none;
   position: absolute;
@@ -344,7 +350,7 @@ a {
   display: block;
 }
 
-.Todo-listbtn{
+.Todo-listbtn {
   display: flex;
   margin-left: 25px;
 }
@@ -353,9 +359,12 @@ a {
   background-color: #252525;
 }
 
+
 @media screen and (max-width: 768px) {
   .Todolist-box-search {
     width: 100%;
+    padding: 0 10px 0 10px;
+    margin: 0 10px 20px 10px;
   }
 
   .Todolist-box-search-input {
@@ -372,5 +381,11 @@ a {
     margin-left: 10px;
     margin-right: 10px;
 
+  }
+
+  .Todolist-box {
+    flex-direction: column;
+    width: 100%;
+   
   }
 }
