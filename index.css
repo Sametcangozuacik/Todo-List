@@ -320,7 +320,6 @@ a {
 
 
 .Todo-allmenu {
-  position: relative;
   display: inline-block;
 }
 
@@ -387,5 +386,24 @@ a {
     flex-direction: column;
     width: 100%;
    
+  }
+ 
+  .Todo-listbtn{
+    width: 90%;
+    display: flex;
+    gap: 20px;
+  }
+
+  .Todo-allmenu {
+    width: 90%;
+  }
+  
+  .allbtn {
+    width: 100%;
+
+  }
+
+  .Todo-allmenu-content {
+    width: 75% ;
   }
 }

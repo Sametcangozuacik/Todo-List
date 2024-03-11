@@ -15,7 +15,7 @@ const renderTodoList = () => {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
         todoItem.innerHTML = `
-            <input class="Todo-checkbox" type="checkbox" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
+            <input class="Todo-checkbox" type="checkbox" onchange="compeleteTodo(${todo.id})" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
             <label for="todo${index}">${todo.title}</label>
             <img class="delete-button" src="images/delete-button.svg" onclick="deleteTodo(${index})" />
         `;
@@ -77,7 +77,7 @@ function applyNote() {
 let isAddModalOpen = false;
 
 function cancelNote() {
-    noteContainer.style.display = "none";
+    notesContainer.style.display = "none";
     isAddModalOpen = !isAddModalOpen;
 }
 
@@ -118,13 +118,26 @@ const renderFilteredTodoList = (filteredList) => {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
         todoItem.innerHTML = `
-            <input type="checkbox" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
+            <input type="checkbox" onchange="compeleteTodo(${todo.id})" id="todo${index}" name="todo${index}" value="${todo.isDone}" ${todo.isDone && "checked"} />
             <label for="todo${index}">${todo.title}</label>
             <img class="delete-button" src="images/delete-button.svg" onclick="deleteTodo(${index})" />
         `;
         notesContainer.appendChild(todoItem);
     });
 };
+
+function compeleteTodo(todoId) {
+    const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
+    const todoItemToChange = todoList.find((todo) => todo.id == todoId);
+
+    todoItemToChange.isDone = !todoItemToChange.isDone;
+
+    const newTodoList = todoList.map((todo) => (todo.id == todoId ? todoItemToChange : todo));
+
+    localStorage.setItem("todoList", JSON.stringify(newTodoList));
+
+}
 
 function deleteTodo(index) {
     const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
@@ -137,18 +150,21 @@ function toggleDropdown() {
     document.getElementById("Todo-allmenu-content").classList.toggle("show");
 }
 
-function todoAl() {
+function todoAll() {
     renderTodoList();
+    toggleDropdown()
 }
 
 function todoCompleted() {
     const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
     const filteredList = todoList.filter(todo => todo.isDone);
     renderFilteredTodoList(filteredList);
+    toggleDropdown()
 }
 
 function todoUncompleted() {
     const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
     const filteredList = todoList.filter(todo => !todo.isDone);
     renderFilteredTodoList(filteredList);
+    toggleDropdown()
 }
