@@ -13,26 +13,23 @@ a {
   color: inherit;
 }
 
-.body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .Todolist {
   margin: 0 auto;
   max-width: 600px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
+
 
 .Todolist-h1 {
   font-family: Arial, sans-serif;
-  position: absolute;
-  top: 30px;
+  margin-top: 30px;
 }
+
 
 .Todolist-box-search-button:hover,
 .Todo-List-background-mode:hover,
@@ -42,12 +39,11 @@ a {
 }
 
 .Todolist-box {
-  width: 100%;
+  max-width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: -30px;
+  margin-top: 30px;
 }
 
 .Todolist-box-search {
@@ -58,6 +54,7 @@ a {
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+
 }
 
 .Todolist-box-search-input {
@@ -85,6 +82,12 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+.Todo-checkbox:checked+label {
+  color: gray;
+  text-decoration: line-through;
+}
+
 
 .dark-mode {
   background-color: #252525;
@@ -120,10 +123,12 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 9999;
   font-family: Arial, sans-serif;
+  display: none;
 }
 
 .custom-container-h2 {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 .custom-input {
@@ -148,7 +153,6 @@ a {
   width: 100px;
   padding: 10px;
   font-size: 16px;
-  cursor: pointer;
   border: none;
   border-radius: 5px;
   background-color: #6c63ff;
@@ -167,17 +171,19 @@ a {
   border: white;
 }
 
-.dark-mode .Todolist-box-search-button{
+.dark-mode .Todolist-box-search-button {
   background-color: transparent;
 }
+
 #notesContainer {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
-  font-family: Arial, sans-serif;
   width: 100%;
   font-size: 24px;
   margin-top: 20px;
+  padding-bottom: 30px;
+  font-family: Arial, sans-serif;
 }
 
 #notesContainer input[type="checkbox"] {
@@ -191,7 +197,7 @@ a {
 }
 
 #notesContainer input[type="checkbox"]:active {
-  background-color: #6C63FF; /* veya istediğiniz başka bir renk */
+  background-color: #6C63FF;
 }
 
 .note-item {
@@ -239,11 +245,12 @@ a {
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
-  position: relative;
+  border: none;
+  border-bottom: 1px solid #6c63ff;
 }
 
 .todo-item .delete-button:hover {
-  content: url('images/delete-button-red.svg'); 
+  content: url('images/delete-button-red.svg');
 }
 
 .todo-item label {
@@ -266,14 +273,14 @@ a {
 
 }
 
-.all-data-deleted-p{
+.all-data-deleted-p {
   font-size: 24px;
 }
 
-.Todo-plus-button{
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
+.Todo-plus-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
   background-color: #6c63ff;
   border-radius: 50%;
   width: 40px;
@@ -287,10 +294,76 @@ a {
   background-color: #534cc2;
 }
 
+.Todo-checkbox {
+  accent-color: #6C63FF;
+  border: 1px solid #6C63FF;
+}
+
+.allbtn {
+  background-color: #6C63FF;
+  width: 122px;
+  height: 35px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allbtn img {
+  width: 15px;
+  height: 15px;
+}
+
+
+.Todo-allmenu {
+  display: inline-block;
+}
+
+.Todo-allmenu-content {
+  border: 2px solid #6C63FF;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 80px;
+  z-index: 1;
+}
+
+.Todo-allmenu-content a {
+  color: #6C63FF;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+.Todo-allmenu-content a:hover {
+  background-color: #C2B2FF;
+}
+
+.show {
+  display: block;
+}
+
+.Todo-listbtn {
+  display: flex;
+  margin-left: 25px;
+}
+
+.dark-mode .Todo-allmenu-content {
+  background-color: #252525;
+}
+
 
 @media screen and (max-width: 768px) {
   .Todolist-box-search {
     width: 100%;
+    padding: 0 10px 0 10px;
+    margin: 0 10px 20px 10px;
   }
 
   .Todolist-box-search-input {
@@ -301,5 +374,36 @@ a {
     width: 90%;
     max-width: 400px;
     height: auto;
+  }
+
+  .todo-item {
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+
+  .Todolist-box {
+    flex-direction: column;
+    width: 100%;
+   
+  }
+ 
+  .Todo-listbtn{
+    width: 90%;
+    display: flex;
+    gap: 20px;
+  }
+
+  .Todo-allmenu {
+    width: 90%;
+  }
+  
+  .allbtn {
+    width: 100%;
+
+  }
+
+  .Todo-allmenu-content {
+    width: 75% ;
   }
 }
